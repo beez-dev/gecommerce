@@ -1,0 +1,21 @@
+{
+    "name": "@asseteer/schemas",
+    "version": "1.0.0",
+    "description": "\"Schemas and types for asseteer as a common sharable package\"",
+    "main": "dist/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc",
+        "dev:watch": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'tsc'"
+    },
+    "author": "Beez dev",
+    "license": "CUSTOM",
+    "devDependencies": {
+        "ts-node": "^10.9.2",
+        "typescript": "^5.5.4",
+        "nodemon": "^3.1.4"
+    },
+    "dependencies": {
+        "zod": "^3.23.8"
+    }
+}

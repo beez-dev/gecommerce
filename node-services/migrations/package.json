@@ -1,0 +1,32 @@
+{
+  "name": "@gecommerce/migrations",
+  "version": "1.0.0",
+  "description": "Database migrations for asseteer using Knex.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev:watch": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'tsc'",
+    "migrate:make": "knex migrate:make",
+    "migrate:up": "knex migrate:up",
+    "migrate:down": "knex migrate:down",
+    "migrate:latest": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback",
+    "migrate:status": "knex migrate:status"
+  },
+  "author": "Beez dev",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "nodemon": "^3.1.4",
+    "@types/node": "^20.0.0"
+  },
+  "dependencies": {
+    "@gecommerce/config": "file:../config",
+    "zod": "^3.23.8",
+    "knex": "^3.1.0",
+    "pg": "^8.11.0",
+    "dotenv": "^16.3.0"
+  }
+}
