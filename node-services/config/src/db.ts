@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 export interface DatabaseConfig {
     host: string;
     port: number;
@@ -6,18 +10,17 @@ export interface DatabaseConfig {
     password: string;
 }
 
-export interface AppConfig {
-    database: DatabaseConfig;
-}
-
-const config: AppConfig = {
-    database: {
-        host: process.env.DB_HOST!,
-        port: parseInt(process.env.DB_PORT!, 10),
-        database: process.env.DB_NAME!,
-        user: process.env.DB_USER!,
-        password: process.env.DB_PASSWORD!,
-    },
+const config = () => {
+    return {
+        database: {
+            host: process.env.DB_HOST || 'localhost',
+            port: parseInt(process.env.DB_PORT || '5432', 10),
+            database: process.env.DB_NAME || 'gecommerce',
+            user: process.env.DB_USER || process.env.DB_USERNAME || 'postgres',
+            password:
+                process.env.DB_PASSWORD || process.env.DB_PWD || 'password',
+        },
+    };
 };
 
-export { config as dbConfig };
+export { config };

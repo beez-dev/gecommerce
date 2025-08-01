@@ -4,13 +4,32 @@ import { config } from './config';
 const knexConfig: { [key: string]: Knex.Config } = {
     development: {
         client: 'postgresql',
-        connection: config.connectionUrl,
+        connection: config.database,
         pool: {
             min: 2,
             max: 10,
         },
         migrations: {
             directory: './migrations',
+            extension: 'ts',
+            loadExtensions: ['.ts'],
+        },
+        seeds: {
+            directory: './seeds',
+        },
+    },
+
+    staging: {
+        client: 'postgresql',
+        connection: config.database,
+        pool: {
+            min: 2,
+            max: 10,
+        },
+        migrations: {
+            directory: './migrations',
+            extension: 'ts',
+            loadExtensions: ['.ts'],
         },
         seeds: {
             directory: './seeds',
@@ -19,15 +38,15 @@ const knexConfig: { [key: string]: Knex.Config } = {
 
     production: {
         client: 'postgresql',
-        connection: config.connectionUrl,
+        connection: config.database,
         pool: {
             min: 2,
             max: 10,
         },
         migrations: {
             directory: './migrations',
-            extension: 'sql',
-            loadExtensions: ['.sql'],
+            extension: 'ts',
+            loadExtensions: ['.ts'],
         },
         seeds: {
             directory: './seeds',

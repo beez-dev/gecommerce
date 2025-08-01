@@ -1,1 +1,1 @@
-export { dbConfig } from './db';
+export { config } from './db';

@@ -4,12 +4,12 @@ export async function up(knex: Knex): Promise<void> {
     // language=SQL format=false
     await knex.raw(`
         CREATE TABLE customer (
-            id PRIMARY KEY DEFAULT gen_random_uuid(),
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
             first_name VARCHAR NOT NULL,
             last_name VARCHAR NOT NULL,
             email VARCHAR NOT NULL UNIQUE,
             phone_number VARCHAR NOT NULL,
-            address REFERENCES address (id)
+            address_id UUID REFERENCES address (id)
         );
     `);
 }
